@@ -23,7 +23,7 @@ const fetchCurrenciesSuccess = (result) => {
 const fetchExchangeRateSuccess = (result, query) => {
   return {
     type: currencyConstants.FETCH_EXCHANGE_RATE_SUCCESS,
-    rate: result[query].val
+    rate: result[query].val.toFixed(2)
   }
 }
 

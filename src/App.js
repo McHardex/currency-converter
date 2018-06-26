@@ -55,6 +55,7 @@ class App extends Component {
     return(
       <div className='title'>
         <h1>Currency Converter</h1>
+        <p className='rate'>Exchange Rate: {this.state.exchangeRate}</p>
       <div className='converterContainer'>
         <form onSubmit={this.convert}>
           <input onChange={this.inputChange} className='amount' placeholder='Enter amount'/>
