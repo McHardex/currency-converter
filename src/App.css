@@ -116,5 +116,5 @@ p.rate {
   font-family: monospace;
   text-align: center;
   position: relative;
-  font-size: 14px;
+  /* font-size: 14px; */
 }

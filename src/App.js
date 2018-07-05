@@ -24,7 +24,6 @@ class App extends Component {
     e.preventDefault()
     const query = `${this.state.from}_${this.state.to}`
     this.props.getExchangeRate(query)
-    console.log(this.props.getExchangeRate(query))
   }
 
   curtwoChange(e) {
@@ -83,3 +82,6 @@ class App extends Component {
 }
 const mapStateToProps = ({currency}) => ({currency})
 export default connect(mapStateToProps, {fetchCurrencies, getExchangeRate})(App)
+
+
+

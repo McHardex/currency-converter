@@ -40,3 +40,4 @@ const getExchangeRate = (query) => {
 }
 
 export { fetchCurrencies, getExchangeRate }
+
