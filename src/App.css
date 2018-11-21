@@ -1,120 +1,201 @@
-.converterContainer {
-  display: -ms-flexbox;
+body {
+  margin: 0 0;
+}
+
+#root {
   display: flex;
-  -ms-flex-pack: center;
-  justify-content: center;
-  /* width: 100%; */
-  height: 180px;
-  /* position: relative; */
-  -ms-flex-align: center;
   align-items: center;
-  margin: -40px auto;
-  border-top: 10px solid #042644;
-  background: #042644;
+  height: 100vh;
+}
+
+.curConvert {
+  width: 100%;
+}
+
+.header {
+  background: #0000000a;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 60px;
+  color: #023688;
+  text-shadow: 2px 6px 6px antiquewhite;
+  font-family: monospace;
+  margin: 0;
+}
+
+.exchange-rte {
+  height: 20vh;
+  background: #011638;
+}
+
+.exchange-rte p {
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  margin: 0;
+  padding: 10px 0;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #0219377a;
+  padding: 15px 0;
 }
 
 input.amount {
   padding: 8px;
-  width: 18%;
   outline: none;
   font-size: 23px;
   text-align: center;
-  border: 1px solid dodgerblue;
+  border: 1px solid #011638;
   background: aliceblue;
-}
-
-span.result {
-  font-size: 23px;
-  font-family: monospace;
-  padding: 10px;
-  float: right;
-  margin-left: 20px;
-  border: 1px solid dodgerblue;
-  background: aliceblue;
-  width: 260px
 }
 
 span.to {
   font-size: 18px;
   font-family: monospace;
-  padding: 8px;
 }
 
 select.currencyFrom {
-  background: dodgerblue;
+  background: #011638;
   height: 40px;
   width: 7%;
-  position: relative;
   margin-left: 10px;
   font-family: monospace;
   font-size: 15px;
   outline: none;
   color: white;
-  top: -3px;
 
 }
 
 select.currencyTo {
-  background: dodgerblue;
+  background: #011638;
   height: 40px;
   width: 7%;
-  position: relative;
   margin-right: 10px;
   font-family: monospace;
   font-size: 15px;
   outline: none;
   color: white;
-  top: -3px;
 }
 
 button.convert-btn {
   cursor: pointer;
   padding: 12px 60px;
-  background: #F44336;
+  background: rgb(221, 38, 25);
   font-size: 16px;
   font-family: monospace;
   border: 1px solid white;
   color: white;
   outline: none;
-  position: relative;
-  top: -2px;
   border-radius: 6px;
-  margin-left: 60px;
 }
 
-form {
-  border: 1px solid white;
-  padding: 8px 10px;
-  background: antiquewhite;
-  position: relative;
-  margin-top: 111px;
-  max-width: 100%
+.result {
+  outline: none;
+  font-size: 16px;
+  border: 1px solid #011638;
+  background: aliceblue;
+  width: 20%;
+  padding: 8px 6px;
 }
 
-.title h1 {
-  text-align: center;
-  font-size: 60px;
-  color: #095de4;
-  text-shadow: 2px 6px 6px antiquewhite;
-  font-family: monospace;
+/* mobile portrait */
+@media (min-width: 320px) and (max-width: 480px) {
+  #root {
+    flex-direction: column;
+  }
+
+  .header {
+    height: 20vh;
+    text-align: center;
+  }
+  
+  .header h1 {
+    font-size: 35px;
+  }
+  
+  .exchange-rte {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+  }
+  
+  .exchange-rte p {
+    font-size: 15px;
+  }
+
+  form {
+    flex-direction: column;
+    height: 60vh;
+    padding: 0;
+  }
+  
+  select.currencyFrom, select.currencyTo {
+    height: 15%;
+    width: 15%;
+  }
+
+  .result {
+    width: 75%;
+    text-align: center;
+    padding: 8px;
+    font-size: 20px;
+  }
 }
 
-.title {
-  background: #0000000a;
-  max-width: 80%;
-  margin: 0 auto;
-  position: relative;
-  top: 250px;
-}
+/* mobile landscape */
+@media (min-width: 481px) and (max-width: 767px) {
+  #root {
+    flex-direction: column;
+  }
 
-div#root {
-  display: flex;
-}
+  .header {
+    height: 15vh;
+    text-align: center;
+  }
+  
+  .header h1 {
+    font-size: 35px;
+  }
+  
+  .exchange-rte {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+  }
+  
+  .exchange-rte p {
+    font-size: 15px;
+  }
 
-p.rate {
-  color: white;
-  font-family: monospace;
-  text-align: center;
-  position: relative;
-  /* font-size: 14px; */
+  form {
+    flex-direction: column;
+    height: 70vh;
+    padding: 0;
+  }
+  
+  select.currencyFrom, select.currencyTo {
+    height: 15%;
+    width: 15%;
+  }
+
+  .result {
+    width: 75%;
+    text-align: center;
+    padding: 8px;
+    font-size: 20px;
+  }
 }

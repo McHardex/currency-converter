@@ -11,7 +11,9 @@ class App extends Component {
       currencies: {},
       amount: 0,
       from: 'ALL',
-      to: 'ALL'
+      to: 'ALL',
+      exchangeRate: null,
+      result: 0
     }
 
     this.convert = this.convert.bind(this)
@@ -24,6 +26,7 @@ class App extends Component {
     e.preventDefault()
     const query = `${this.state.from}_${this.state.to}`
     this.props.getExchangeRate(query)
+    this.setState({ result: this.state.amount })
   }
 
   curtwoChange(e) {
@@ -49,32 +52,32 @@ class App extends Component {
   }
 
   render() {
-    const amount =  parseInt(this.state.amount, 10)
-   const result = this.state.exchangeRate && this.state.exchangeRate * amount
     return(
-      <div className='title'>
-        <h1>Currency Converter</h1>
-        <p className='rate'>Exchange Rate: {this.state.exchangeRate}</p>
-      <div className='converterContainer'>
-        <form onSubmit={this.convert}>
-          <input onChange={this.inputChange} className='amount' placeholder='Enter amount'/>
-          <select className='currencyFrom' onChange={this.curOneChange}>
-            {Object.keys(this.state.currencies).map((currency)=> {
-              const currencyList = this.state.currencies[currency]
-              return <option key={currencyList.id} value={currencyList.id}>{currencyList.id}</option>
-            })}
-          </select>
-          <span className='to'> to </span>
-          <select className='currencyTo' onChange={this.curtwoChange}>
-            {Object.keys(this.state.currencies).map((currency)=> {
-              const currencyList = this.state.currencies[currency]
-              return <option key={currencyList.id} value={currencyList.id}>{currencyList.id}</option>
-            })}
-          </select>
-        <button className='convert-btn'>Convert</button>
-        <span className='result'>{result || 0}</span>
-        </form>
-      </div>
+      <div className='curConvert'>
+        <div className='header'>
+          <h1>Currency Converter</h1>
+        </div>
+        <div className='exchange-rte'>
+          <p className='rate'>Exchange Rate: {this.state.exchangeRate}</p>
+        </div>
+          <form onSubmit={this.convert}>
+              <input onChange={this.inputChange} className='amount' type='number' placeholder='Enter amount'/>
+              <select className='currencyFrom' onChange={this.curOneChange}>
+                {Object.keys(this.state.currencies).map((currency)=> {
+                  const currencyList = this.state.currencies[currency]
+                  return <option key={currencyList.id} value={currencyList.id}>{currencyList.id}</option>
+                })}
+              </select>
+              <span className='to'> to </span>
+              <select className='currencyTo' onChange={this.curtwoChange}>
+                {Object.keys(this.state.currencies).map((currency)=> {
+                  const currencyList = this.state.currencies[currency]
+                  return <option key={currencyList.id} value={currencyList.id}>{currencyList.id}</option>
+                })}
+              </select>
+            <button className='convert-btn' type='submit'>Convert</button>
+            <span className='result'>{this.state.result * this.state.exchangeRate}</span>
+          </form>
       </div>
     )
   

@@ -7,8 +7,8 @@ A currency converter application which can convert currencies from one to anothe
 
 
 ## Features of the api
-* Posts in the endpoint
-* Number of comments a user has
+* Users post can be viewed
+* comments and number of comments a user has
 * Albums and thumbnails of users in the endpoint
 
 
@@ -33,12 +33,12 @@ A currency converter application which can convert currencies from one to anothe
   npm install
   ```
 
-## Starting the Application
-navigate to application root dir
+  navigate to application root dir
   ```
   cd currency-converter
   ```
-  
+
+## Starting the Application
   ```
   npm start
   ```
